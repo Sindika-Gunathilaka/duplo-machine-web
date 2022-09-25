@@ -1,0 +1,1 @@
+export const BASE_URL = "http://darimacspringcore-env.eba-mvrmj3k2.us-west-2.elasticbeanstalk.com";

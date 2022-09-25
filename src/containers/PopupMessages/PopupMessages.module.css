@@ -1,0 +1,99 @@
+/* Popup style */
+.popupBox {
+    z-index: 2000;
+  }
+  
+  .box {
+    position: relative;
+    text-align: center;
+  }
+  
+  .boxSuccess{
+    position: relative;
+    text-align: center;
+    border-color: black;
+  }
+  
+  .iconText {
+    display: block;
+    width: 100%;
+    height: calc(7em + .25rem + 2px);
+    padding: 1rem 2rem;
+    background-image: url('../../assets/images/succcssp.gif');
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size:40px;
+    outline: 0;
+  }
+  
+  .errorIconText {
+    display: block;
+    width: 100%;
+    height: calc(7em + .25rem + 2px);
+    padding: 1rem 2rem;
+    background-image: url('../../assets/images/Cross_cercle_red_blink.gif');
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size:40px;
+    outline: 0;
+  }
+  
+  .sessionTimeOutIconText {
+    display: block;
+    width: 100%;
+    height: calc(5em + .25rem + 2px);
+    /* padding: 1rem 2rem; */
+    background-image: url('../../assets/images/error.png');
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size:40px;
+    outline: 0;
+  }
+  
+  .messageText{
+    color: rgba(0, 0, 0, 0.644);
+    font-size: 1rem;
+   
+  }
+  
+  .messageTextSucces{
+    color: rgba(23, 102, 39, 0.644);
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  
+  .messageTextError{
+    color: rgba(128, 20, 20, 0.644);
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  
+  .messageBackground {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 2.5;
+    background-repeat: no-repeat;
+    background-size: 17px;
+    outline: 0;
+    text-align: center;
+  }
+  .messageTextTwo{
+    color:chocolate;
+    font-size: 0.8rem;
+  }
+  
+  .checkedMessage{
+    display: block;
+    width: 100%;
+    height: calc(5em + .25rem + 2px);
+    /* padding: 1rem 2rem; */
+    background-image: url('../../assets/images/popup.png');
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size:40px;
+    outline: 0;
+  }
+  

@@ -1,12 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { combineReducers, createStore } from 'redux';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+
+import editCustomerReducer from './store/reducers/editCustomer';
+import editPaperSizeReducer from './store/reducers/editPaperSize';
+import editPaperGsmReducer from './store/reducers/editPaperGsm';
+import editPaperItemReducer from './store/reducers/editPaperItem';
+import editJobReducer from './store/reducers/editJob';
+
+
+const rootReducer = combineReducers({
+  editCustomer: editCustomerReducer,
+  editPaperSize: editPaperSizeReducer,
+  editPaperGsm: editPaperGsmReducer,
+  editPaperItem: editPaperItemReducer,
+  editJob: editJobReducer
+})
+
+export const store = createStore(rootReducer, {});
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -265,6 +265,24 @@ class ViewPaperGsm extends Component {
 
     return (
       <div className={classes.MainPanel}>
+        <div style={{ fontSize: "18px", paddingTop: "10px", paddingBottom: "25px" }}>
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand mb-0 h1" href="#">DARIMAC DIGITAL</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="/view-customer">Customers</a>
+                <a class="nav-item nav-link active" href="/view-all-jobs">All Jobs</a>
+                <a class="nav-item nav-link active" href="/view-paper-size">Paper Size</a>
+                <a class="nav-item nav-link active" href="/view-paper-gsm">Paper GSM</a>
+                <a class="nav-item nav-link active" href="/view-paper-item">Paper Item</a>
+                <a class="nav-item nav-link active" href="/view-job">Duplo</a>
+              </div>
+            </div>
+          </nav>
+        </div>
       <div className={classes.ContentWrapper}>
 
         <Container fluid>

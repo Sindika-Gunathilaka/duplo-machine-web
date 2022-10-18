@@ -17,3 +17,7 @@ export {
 export {
     SelectjobId
 } from './editJob'
+
+export {
+    SelectAllJobsId
+} from './editAllJobs'

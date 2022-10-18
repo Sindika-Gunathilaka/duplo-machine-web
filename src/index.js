@@ -11,14 +11,15 @@ import editPaperSizeReducer from './store/reducers/editPaperSize';
 import editPaperGsmReducer from './store/reducers/editPaperGsm';
 import editPaperItemReducer from './store/reducers/editPaperItem';
 import editJobReducer from './store/reducers/editJob';
-
+import editAllJobsReducer from './store/reducers/editAllJobs';
 
 const rootReducer = combineReducers({
   editCustomer: editCustomerReducer,
   editPaperSize: editPaperSizeReducer,
   editPaperGsm: editPaperGsmReducer,
   editPaperItem: editPaperItemReducer,
-  editJob: editJobReducer
+  editJob: editJobReducer,
+  editAllJobs: editAllJobsReducer
 })
 
 export const store = createStore(rootReducer, {});

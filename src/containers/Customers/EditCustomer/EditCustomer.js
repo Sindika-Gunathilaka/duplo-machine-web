@@ -196,7 +196,7 @@ class EditCustomer extends Component {
       }
 
       console.log(postData, "postData")
-      const customer = await axios.put("http://localhost:8080/v1/customers/"+details.id, postData);
+      const customer = await axios.put(BASE_URL + "/v1/customers/"+details.id, postData);
       if (customer?.status == 201 || customer?.status == 200) {
         await this.popUpTypeSuccess();
         await this.showPopupSuccess();

@@ -118,7 +118,7 @@ class CreateAllJobs extends Component {
 
   popUpTypeSuccess = async () => {
     await this.setState({
-      popupMessage: "Customer created successfully",
+      popupMessage: "General Job created successfully",
       messageType: "success"
     })
   }
@@ -292,7 +292,7 @@ class CreateAllJobs extends Component {
                 <label><h6>Payment Status</h6></label>
                 <select className="form-control" style={{ backgroundColor: "#F7F7F7", borderRadius: " .55rem", cursor: "pointer" }} name={"payment_status"} onChange={(e) => this.onJobTypeSelectHandler(e)}>
                   <option value={"UNSETTLED"}>UNSETTLED</option>
-                  <option value={"FULLY PAID"}>FULLY_PAID</option>
+                  <option value={"FULLY_PAID"}>FULLY_PAID</option>
                 </select>
               </Col>
               <br />

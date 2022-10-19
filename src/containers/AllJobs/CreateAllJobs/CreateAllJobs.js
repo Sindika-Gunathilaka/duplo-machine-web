@@ -86,7 +86,7 @@ class CreateAllJobs extends Component {
 
     let postData = {
       job_type: this.state.job_type,
-      job_description: this.state.job_type,
+      job_description: this.state.job_description,
       job_date: this.state.job_date,
       job_payment: this.state.job_payment,
       payed_amount: this.state.payed_amount,

@@ -58,8 +58,8 @@ class EditAllJobs extends Component {
       job_payment: '',
       payed_amount: '',
       due_payment: '',
-      payment_status: '',
-      job_status: '',
+      payment_status: "UNSETTLED",
+      job_status: "TODO",
       customers: [],
       selectedCustId: '',
       selectedJobId:''

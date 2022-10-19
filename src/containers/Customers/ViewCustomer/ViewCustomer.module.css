@@ -127,7 +127,7 @@
       line-height: 2rem;
       background-color: #092132;
       cursor: pointer;
-      border-top-left-radius: 15px;
+      /* border-top-left-radius: 15px; */
     }
    
     .thBtnEnd {
@@ -136,7 +136,7 @@
       line-height: 2rem;
       background-color: #092132;
       cursor: pointer;
-      border-top-right-radius: 15px;
+      /* border-top-right-radius: 15px; */
     }
     
     .tdNameStart {
@@ -159,13 +159,13 @@
   
     .tdLastStart {
       text-align: center;
-      border-bottom-left-radius: 30%;
+      /* border-bottom-left-radius: 30%; */
       width: 50px;
     }
   
     .tdLastEnd {
       text-align: center;
-      border-bottom-right-radius: 30%;
+      /* border-bottom-right-radius: 30%; */
       width: 50px;
     }
     

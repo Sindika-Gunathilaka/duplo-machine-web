@@ -58,8 +58,8 @@ class CreateAllJobs extends Component {
       job_payment: '',
       payed_amount: '',
       due_payment: '',
-      payment_status: '',
-      job_status: '',
+      payment_status: "UNSETTLED",
+      job_status: "TODO",
       customers: [],
       selectedCustId: ''
     }
@@ -69,7 +69,8 @@ class CreateAllJobs extends Component {
     try {
       const customer = await axios.get(BASE_URL + "/v1/customers");
       await this.setState({
-        customers: customer.data
+        customers: customer.data,
+        selectedCustId: customer.data[0].id
       })
       console.log(this.state.customers, "ttttt")
     } catch (error) {

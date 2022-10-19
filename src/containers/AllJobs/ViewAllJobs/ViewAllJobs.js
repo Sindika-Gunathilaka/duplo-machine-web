@@ -376,7 +376,7 @@ class ViewAllJobs extends Component {
             <Row style={{ height: "4rem" }} >
               <Col md={2} xl={4} lg={4} xs={2} sm={2} style={{ display: "flex", justifyContent: "flex-start", alignItems: "center", fontSize: "0.8rem" }} >
                 <div className={classes.perPageContainer}>
-                  <label style={{ margin: "0px" }}> Per Page  </label>
+                  <label style={{ margin: "0px", color: "white" }}> Per Page  </label>
                   <select style={{ cursor: "pointer" }} className={classes.perPage} name="size" id="size" onChange={this.pagesPerPageHandler.bind(this)} >
                     <option label="8" value="8" />
                     <option disabled={allJobsLength >= 20 ? false : true} label="20" value="20" />
@@ -385,7 +385,7 @@ class ViewAllJobs extends Component {
                   </select>
                 </div>
               </Col>
-              <Col md={2} xl={4} lg={4} xs={2} sm={2} style={{ display: "flex", justifyContent: "center", alignItems: "center", fontSize: "0.8rem" }} >
+              <Col md={2} xl={4} lg={4} xs={2} sm={2} style={{ display: "flex", justifyContent: "center", alignItems: "center", fontSize: "0.8rem", color: "white" }} >
                 <label className={classes.showingPageContainer}>
                   {(allJobsLength !== 0) ?
                     <>Showing Page {currentPage} of {Math.ceil(totalPages) ? Math.ceil(totalPages) : "Calculating..."}</>

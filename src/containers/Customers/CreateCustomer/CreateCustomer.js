@@ -37,7 +37,7 @@ class CreateCustomer extends Component {
         activeStatus: '',
         gender: '',
         dateOfBirth: "",
-        customerCode: ''
+        customer_registration_id: ''
       },
       validateCustomers: [],
       errors: {
@@ -51,7 +51,7 @@ class CreateCustomer extends Component {
       popupMessage: "",
       messageType: "",
       saveButton: false,
-      customer_type: "PRIVATE"
+      customer_type: "PRIVATE",
     }
   }
 
@@ -180,7 +180,8 @@ class CreateCustomer extends Component {
         address: this.state.details.address,
         mobile_number: this.state.details.phoneNum,
         email: this.state.details.email,
-        customer_type: this.state.customer_type
+        customer_type: this.state.customer_type,
+        customer_registration_id: this.state.details.customer_registration_id
       }
 
       console.log(postData, "postData")
@@ -189,10 +190,10 @@ class CreateCustomer extends Component {
         await this.popUpTypeSuccess();
         await this.showPopupSuccess();
         await this.props.handleGetResponse();
-        
+
       } else {
         await this.popUpTypeError();
-        await this.showPopupError();   
+        await this.showPopupError();
 
       }
       console.log("customer", customer)
@@ -280,7 +281,21 @@ class CreateCustomer extends Component {
           <hr />
           <div className={classes.ContentWrapper}>
             <Row>
+              <Col>
+                <label><h6><a style={{ color: 'red' }}>* </a>Customer Registration ID</h6></label>
+                <input
+                  className={classes.searchIconText}
+                  type="text"
+                  name="customer_registration_id"
+                  value={this.state.details.customer_registration_id}
+                  onChange={this.onInputChange} noValidate />
+                <br />
+              </Col>
 
+              <Col>
+              </Col>
+            </Row>
+            <Row>
               <Col>
                 <label><h6><a style={{ color: 'red' }}>* </a>First Name</h6></label>
                 <input
@@ -356,7 +371,9 @@ class CreateCustomer extends Component {
                 </select>
 
               </Col>
-              <Col></Col>
+              <Col>
+
+              </Col>
             </Row>
 
 

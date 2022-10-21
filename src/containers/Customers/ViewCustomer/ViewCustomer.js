@@ -324,7 +324,7 @@ class ViewCustomer extends Component {
                 <Table hover responsive>
                   <thead >
                     <tr>
-                      <th style={{ minWidth: "150px", verticalAlign: "initial" }} className={classes.thBtnStart} onClick={() => this.sortBy("customerCode")} >ID <FontAwesomeIcon icon={faSort} /></th>
+                      <th style={{ minWidth: "150px", verticalAlign: "initial" }} className={classes.thBtnStart} onClick={() => this.sortBy("customerCode")} >Customer Registration ID <FontAwesomeIcon icon={faSort} /></th>
                       <th style={{ verticalAlign: "initial" }} className={classes.thBtn} onClick={() => this.sortBy("firstName")}>Name <FontAwesomeIcon icon={faProductIconHandler === true ? faSortAlphaUp : faSortAlphaDown} /></th>
                       {/* <th className={classes.thBtn} onClick={() => this.sortBy("last_name")}>Last Name <FontAwesomeIcon icon={faProductIconHandler === true ? faSortAlphaUp : faSortAlphaDown} /></th> */}
                       <th style={{ verticalAlign: "initial" }} className={classes.thBtn} onClick={() => this.sortBy("address")}>Address<FontAwesomeIcon icon={faProductIconHandler === true ? faSortAlphaUp : faSortAlphaDown} /></th>
@@ -346,7 +346,7 @@ class ViewCustomer extends Component {
                       </tr>
                       : currentCustomers.map((s, i) => (
                         <tr key={s.id} >
-                          <td style={{ cursor: "default" }} className={(currentCustomers.length === i + 1) ? classes.tdLastStart : classes.tdCenter}>{s.id ? s.id : "-"}</td>
+                          <td style={{ cursor: "default" }} className={(currentCustomers.length === i + 1) ? classes.tdLastStart : classes.tdCenter}>{s.customer_registration_id ? s.customer_registration_id : "-"}</td>
                           <td className={classes.tdProductName} onClick={() => {
                             this.props.SelectCustomerId(s.id);
                             this.handleEditCustomerModalShowHide();

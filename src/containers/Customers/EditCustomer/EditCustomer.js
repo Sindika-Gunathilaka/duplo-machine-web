@@ -32,8 +32,8 @@ class EditCustomer extends Component {
         address: '',
         phoneNum: '',
         email: '',
-        activeStatus: ''
-        
+        activeStatus: '',
+        customer_registration_id: ''
       },
       validateCustomers: [],
       errors: {
@@ -53,26 +53,27 @@ class EditCustomer extends Component {
   componentDidMount = async () => {
 
     let selectedCustID = this.props.selectedCustIDFromRedux.selectedCustID;
-    console.log(selectedCustID,"selectedCustID");
+    console.log(selectedCustID, "selectedCustID");
     try {
-        const customer = await axios.get(BASE_URL + "/v1/customers/"+selectedCustID);
-        console.log(customer,"customer");
-        await this.setState({
-            details:
-            {
-                id: customer.data.id,
-                firstName: customer.data.first_name,
-                lastName: customer.data.last_name,
-                address: customer.data.address,
-                phoneNum: customer.data.mobile_number,
-                email: customer.data.email,
-                activeStatus: customer.data.active_status
-            }, 
-            customer_type:customer.data.customer_type
-       
-    });
-    console.log(customer)
-    console.log(this.state.details.customerType,"cus")
+      const customer = await axios.get(BASE_URL + "/v1/customers/" + selectedCustID);
+      console.log(customer, "customer");
+      await this.setState({
+        details:
+        {
+          id: customer.data.id,
+          firstName: customer.data.first_name,
+          lastName: customer.data.last_name,
+          address: customer.data.address,
+          phoneNum: customer.data.mobile_number,
+          email: customer.data.email,
+          activeStatus: customer.data.active_status,
+          customer_registration_id: customer.data.customer_registration_id
+        },
+        customer_type: customer.data.customer_type
+
+      });
+      console.log(customer)
+      console.log(this.state.details.customerType, "cus")
     } catch (error) {
       console.log(error);
     }
@@ -192,11 +193,12 @@ class EditCustomer extends Component {
         address: this.state.details.address,
         mobile_number: this.state.details.phoneNum,
         email: this.state.details.email,
-        customer_type: this.state.customer_type
+        customer_type: this.state.customer_type,
+        customer_registration_id: this.state.details.customer_registration_id
       }
 
       console.log(postData, "postData")
-      const customer = await axios.put(BASE_URL + "/v1/customers/"+details.id, postData);
+      const customer = await axios.put(BASE_URL + "/v1/customers/" + details.id, postData);
       if (customer?.status == 201 || customer?.status == 200) {
         await this.popUpTypeSuccess();
         await this.showPopupSuccess();
@@ -291,7 +293,21 @@ class EditCustomer extends Component {
           <hr />
           <div className={classes.ContentWrapper}>
             <Row>
+              <Col>
+                <label><h6><a style={{ color: 'red' }}>* </a>Customer Registration ID</h6></label>
+                <input
+                  className={classes.searchIconText}
+                  type="text"
+                  name="customer_registration_id"
+                  value={this.state.details.customer_registration_id}
+                  onChange={this.onInputChange} noValidate />
+                <br />
+              </Col>
 
+              <Col>
+              </Col>
+            </Row>
+            <Row>
               <Col>
                 <label><h6><a style={{ color: 'red' }}>* </a>First Name</h6></label>
                 <input
@@ -360,7 +376,7 @@ class EditCustomer extends Component {
             <Row>
               <Col>
                 <label><h6>Customer Type</h6></label>
-                <select className="form-control" style={{ backgroundColor: "#F7F7F7", borderRadius: " .55rem", cursor: "pointer" }} name={"customer_type"} value = {this.state.customer_type} onChange={(e) => this.onCustomerTypeSelectHandler(e)}>
+                <select className="form-control" style={{ backgroundColor: "#F7F7F7", borderRadius: " .55rem", cursor: "pointer" }} name={"customer_type"} value={this.state.customer_type} onChange={(e) => this.onCustomerTypeSelectHandler(e)}>
                   {/* <option selected>Customer Type</option> */}
                   <option value={"PRIVATE"}>Private</option>
                   <option value={"GOVERNMENT"}>Government</option>
@@ -403,7 +419,7 @@ class EditCustomer extends Component {
 }
 
 const mapSateToProps = (state) => {
-  return {selectedCustIDFromRedux : state.editCustomer}
+  return { selectedCustIDFromRedux: state.editCustomer }
 };
 
 export default connect(mapSateToProps)(EditCustomer);

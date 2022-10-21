@@ -322,13 +322,14 @@ class ViewAllJobs extends Component {
                   <Table hover responsive>
                     <thead >
                       <tr>
-                        <th style={{ minWidth: "150px", verticalAlign: "initial" }} className={classes.thBtnStart} onClick={() => this.sortBy("customerCode")} >ID </th>
-                        <th style={{ verticalAlign: "initial" }} className={classes.thBtn} onClick={() => this.sortBy("firstName")}>Job Type </th>
+                        <th style={{ verticalAlign: "initial" }} className={classes.thBtnStart} onClick={() => this.sortBy("firstName")}>Job Type </th>
                         <th style={{ verticalAlign: "initial" }} className={classes.thBtn} onClick={() => this.sortBy("address")}>Customer</th>
+                        <th style={{ verticalAlign: "initial" }} className={classes.thBtn} onClick={() => this.sortBy("customerCode")} >Quantity</th>
                         <th style={{ verticalAlign: "initial" }} className={classes.thBtn} onClick={() => this.sortBy("address")}>Job Status</th>
                         <th style={{ verticalAlign: "initial" }} className={classes.thBtn} onClick={() => this.sortBy("email")}>Job Date </th>
                         <th style={{ verticalAlign: "initial" }} className={classes.thBtn} onClick={() => this.sortBy("mobileNumber")}>Job Description</th>
                         <th style={{ verticalAlign: "initial" }} className={classes.thBtn} onClick={() => this.sortBy("creditLimit")}>Job payment</th>
+                        <th style={{ verticalAlign: "initial" }} className={classes.thBtn} onClick={() => this.sortBy("customerCode")} >Payment Mode</th>
                         <th style={{ verticalAlign: "initial" }} className={classes.thBtn} onClick={() => this.sortBy("activeStatus")}> Payed amount </th>
                         <th style={{ verticalAlign: "initial" }} className={classes.thBtn} onClick={() => this.sortBy("activeStatus")}> Due Amount</th>
                         <th style={{ verticalAlign: "initial" }} className={classes.thBtn} onClick={() => this.sortBy("activeStatus")}> Payment status</th>
@@ -341,18 +342,19 @@ class ViewAllJobs extends Component {
                           <td colSpan="12">
                             <img width="50px" height="50px" src={noContent} />
                             <br />
-                            <b>No Customers Found</b>
+                            <b>No Jobs Found</b>
                           </td>
                         </tr>
                         : currentCustomers.map((s, i) => (
                           <tr key={s.id} >
-                            <td style={{ cursor: "default" }} className={(currentCustomers.length === i + 1) ? classes.tdLastStart : classes.tdCenter}>{s.id ? s.id : "-"}</td>
                             <td style={{ cursor: "default" }} className={classes.tdStart}>{s.job_type ? s.job_type : ""}</td>
                             <td style={{ cursor: "default" }} className={classes.tdStart}>{s.customer.first_name ? s.customer.first_name : ""}</td>
+                            <td style={{ cursor: "default" }} className={classes.tdStart}>{s.quantity ? s.quantity : "-"}</td>
                             <td style={{ cursor: "default" }} className={classes.tdStart}>{s.job_status ? s.job_status : "-"}</td>
                             <td style={{ cursor: "default" }} className={classes.tdStart}>{s.job_date ? s.job_date : "-"}</td>
                             <td style={{ cursor: "default" }} className={classes.tdStart}>{s.job_description ? (s.job_description.length > 12 ? s.job_description.substring(0, 12).concat("...") : s.job_description) : "-"}</td>
                             <td style={{ cursor: "default" }} className={classes.tdStart}>{s.job_payment ? s.job_payment : "-"}</td>
+                            <td style={{ cursor: "default" }} className={classes.tdStart}>{s.payment_mode ? s.payment_mode : "-"}</td>
                             <td style={{ cursor: "default" }} className={classes.tdStart}>{s.payed_amount ? s.payed_amount : "-"}</td>
                             <td style={{ cursor: "default" }} className={classes.tdStart}>{s.due_payment ? s.due_payment : "-"}</td>
                             <td style={{ cursor: "default" }} className={classes.tdStart}>{s.payment_status ? s.payment_status : "-"}</td>

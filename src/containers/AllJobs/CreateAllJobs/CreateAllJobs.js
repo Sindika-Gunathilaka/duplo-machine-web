@@ -61,7 +61,9 @@ class CreateAllJobs extends Component {
       payment_status: "UNSETTLED",
       job_status: "TODO",
       customers: [],
-      selectedCustId: ''
+      selectedCustId: '',
+      payment_mode: "CASH",
+      quantity: "",
     }
   }
 
@@ -93,6 +95,8 @@ class CreateAllJobs extends Component {
       due_payment: this.state.due_payment,
       payment_status: this.state.payment_status,
       job_status: this.state.job_status,
+      quantity: this.state.quantity,
+      payment_mode: this.state.payment_mode,
       customer: {
         id: this.state.selectedCustId
       }
@@ -177,6 +181,7 @@ class CreateAllJobs extends Component {
     console.log('job_type', this.state.job_type);
     console.log('payment_status', this.state.payment_status);
     console.log('job_status', this.state.job_status);
+    console.log('payment_mode', this.state.payment_mode);
   }
 
   onInputChangeHandler = async (e) => {
@@ -225,6 +230,26 @@ class CreateAllJobs extends Component {
                   <option value={"PHOTO_COPY"}>PHOTO_COPY</option>
                   <option value={"TYPE_SETTING"}>TYPE_SETTING</option>
                 </select>
+              </Col>
+              <Col>
+              <label><h6>Job Status</h6></label>
+                <select className="form-control" style={{ backgroundColor: "#F7F7F7", borderRadius: " .55rem", cursor: "pointer" }} name={"job_status"} onChange={(e) => this.onJobTypeSelectHandler(e)}>
+                  <option value={"TODO"}>TODO</option>
+                  <option value={"IN_PROGRESS"}>IN_PROGRESS</option>
+                  <option value={"COMPLETED"}>COMPLETED</option>
+                </select>
+              </Col>
+            </Row>
+            <br />
+            <Row>
+              <Col>
+                <label><h6><a style={{ color: 'red' }}>* </a>Job Quantity</h6></label>
+                <input
+                  className={classes.searchIconText}
+                  type="text"
+                  name="quantity"
+                  value={this.state.quantity}
+                  onChange={this.onInputChangeHandler} noValidate />
               </Col>
             </Row>
             <br />
@@ -297,11 +322,10 @@ class CreateAllJobs extends Component {
               </Col>
               <br />
               <Col>
-                <label><h6>Job Status</h6></label>
-                <select className="form-control" style={{ backgroundColor: "#F7F7F7", borderRadius: " .55rem", cursor: "pointer" }} name={"job_status"} onChange={(e) => this.onJobTypeSelectHandler(e)}>
-                  <option value={"TODO"}>TODO</option>
-                  <option value={"IN_PROGRESS"}>IN_PROGRESS</option>
-                  <option value={"COMPLETED"}>COMPLETED</option>
+              <label><h6>Payment Mode</h6></label>
+                <select className="form-control" style={{ backgroundColor: "#F7F7F7", borderRadius: " .55rem", cursor: "pointer" }} name={"payment_mode"} onChange={(e) => this.onJobTypeSelectHandler(e)}>
+                  <option value={"CASH"}>CASH</option>
+                  <option value={"CHECK"}>CHECK</option>
                 </select>
               </Col>
               <br />

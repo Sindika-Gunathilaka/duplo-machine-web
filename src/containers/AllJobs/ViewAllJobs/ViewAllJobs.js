@@ -224,13 +224,8 @@ class ViewAllJobs extends Component {
 
   searchEventsHandler = async (title, name) => {
     await this.setState({
-      [name]: title.toLowerCase(),
-      resultFetched: false,
-      currentPage: 1,
-      sortBy: "id",
-      isDescending: true,
+      [name]: title.toLowerCase()
     });
-    await this.getResponse();
   }
 
   action = (id) => {
@@ -350,14 +345,14 @@ class ViewAllJobs extends Component {
                             <td style={{ cursor: "default" }} className={classes.tdStart}>{s.job_type ? s.job_type : ""}</td>
                             <td style={{ cursor: "default" }} className={classes.tdStart}>{s.customer.first_name ? s.customer.first_name : ""}</td>
                             <td style={{ cursor: "default" }} className={classes.tdStart}>{s.quantity ? s.quantity : "-"}</td>
-                            <td style={{ cursor: "default" }} className={classes.tdStart}>{s.job_status ? s.job_status : "-"}</td>
+                            <td style={{ cursor: "default" }} className={classes.tdStart}><span class={s.job_status==="COMPLETED" ? "badge badge-pill badge-primary" : "badge badge-pill badge-warning"}>{s.job_status ? s.job_status : "-"}</span></td>
                             <td style={{ cursor: "default" }} className={classes.tdStart}>{s.job_date ? s.job_date : "-"}</td>
                             <td style={{ cursor: "default" }} className={classes.tdStart}>{s.job_description ? (s.job_description.length > 12 ? s.job_description.substring(0, 12).concat("...") : s.job_description) : "-"}</td>
                             <td style={{ cursor: "default" }} className={classes.tdStart}>{s.job_payment ? s.job_payment : "-"}</td>
                             <td style={{ cursor: "default" }} className={classes.tdStart}>{s.payment_mode ? s.payment_mode : "-"}</td>
                             <td style={{ cursor: "default" }} className={classes.tdStart}>{s.payed_amount ? s.payed_amount : "-"}</td>
                             <td style={{ cursor: "default" }} className={classes.tdStart}>{s.due_payment ? s.due_payment : "-"}</td>
-                            <td style={{ cursor: "default" }} className={classes.tdStart}>{s.payment_status ? s.payment_status : "-"}</td>
+                            <td style={{ cursor: "default" }} className={classes.tdStart}><span class={s.payment_status==="UNSETTLED" ? "badge badge-pill badge-danger" : "badge badge-pill badge-success"}>{s.payment_status ? s.payment_status : "-"}</span></td>
                             <td className={(currentCustomers.length === i + 1) ? classes.tdLastEnd : classes.tdCenter}>
                               {/* {this.action(s.id)} */}
                               <FontAwesomeIcon className={classes.toggle} style={{ cursor: "pointer" }} icon={faEdit} size="x"
